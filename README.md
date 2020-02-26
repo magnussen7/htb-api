@@ -7,8 +7,9 @@ Your profile must be public (On *Hack the Box* > [Settings](https://www.hacktheb
 ## List of endpoints
 
 You need to use the id from the profile url.
-Exemple :
-     https://www.hackthebox.eu/profile/126629
+
+Example :
+  https://www.hackthebox.eu/profile/126629
 
 ### API info : /
 
