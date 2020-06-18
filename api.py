@@ -1,4 +1,4 @@
-#!/usr/bin/python3.6
+#!/usr/bin/python3
 # coding: utf-8
 from htb_class.scrapper import scrapper
 from flask import Flask, redirect, jsonify
@@ -34,7 +34,7 @@ def home():
     return jsonify(presentation)
 
 @app.route('/<id>', methods=['GET'])
-def info(id):
+def info_profile(id):
     """
     User info
     @param id: Get info for this id
@@ -44,6 +44,19 @@ def info(id):
     """
     htb = scrapper(id)
     return jsonify(htb.parse())
+
+@app.route('/team/<id>', methods=['GET'])
+def info_team(id):
+    """
+    Team info
+    @param id: Get info for this team id
+    @type value: int
+    @return: Team's info (username, picture, points, owned system, owned user, respect, rank, challenges, respected_by)
+    @rtype: json
+    """
+    htb = scrapper(id, "https://www.hackthebox.eu/teams/profile/{0}")
+    return jsonify(htb.parse(True))
+
 
 if __name__ == "__main__":
 	app.run(host='127.0.0.1', port='7777', threaded=True)
