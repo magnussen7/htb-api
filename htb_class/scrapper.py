@@ -110,21 +110,26 @@ class scrapper(object):
             'recent_activity': activities
         }
 
-    def parse(self):
+    def parse(self, team=False):
         result = {}
-        print(self.get_request().status_code)
+
         if self.get_request().status_code == requests.codes.ok:
             container = self.__get_main_container()
             info_overview = self.__parse_info_overview(container)
             ranking = self.__parse_ranking(container)
             challenges = self.__parse_challenges(container)
             respect = self.__parse_respect(container)
-            recent_activity = self.__parse_recent_activity(container)
+
+            if team is False:
+                recent_activity = self.__parse_recent_activity(container)
 
             result.update(info_overview)
             result.update(ranking)
             result.update(challenges)
-            result.update(recent_activity)
+
+            if team is False:
+                result.update(recent_activity)
+
             result.update(respect)
             return result
         else:
