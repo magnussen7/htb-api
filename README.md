@@ -101,6 +101,46 @@ Example :
 }
 ```
 
+### Team info : /team/*id*
+
+Example :
+
+```
+> curl 127.0.0.1:7777/team/2685
+{
+  "username": "Funcmylife",
+  "profile_picture": "https://www.hackthebox.eu/storage/teams/41ab1b1d6bf108f388dfb5cd282fb76c.jpg",
+  "points": 98,
+  "owned_systems": 13,
+  "owned_users": 13,
+  "respect": 2,
+  "rank_name": "453",
+  "rank": 453,
+  "total_challenges": 13,
+  "challenges": [
+    {
+      "category": "Reversing",
+      "percent": "2.13%"
+    },
+      ..........
+    {
+      "category": "Hardware",
+      "percent": "0%"
+    }
+  ],
+  "respected_by": [
+    {
+      "username": "Magnussen",
+      "profile_picture": "https://www.hackthebox.eu/storage/avatars/3158e2cf3b6b5488441e02b72b0374d7.png"
+    },
+    {
+      "username": "Kppucino",
+      "profile_picture": "https://www.hackthebox.eu/storage/avatars/e8111c3c228dd421dc7769bfb3d25a3a.png"
+    }
+  ]
+}
+```
+
 ## Installing
 
 First you have to clone this repo :
